@@ -1,0 +1,35 @@
+@media(max-width:768px) {
+    .row{
+        height: auto;
+        
+    }
+
+    .get{
+        padding-top: 130px;
+    }
+
+    .btn{
+        width: 100%;
+    }
+}
+
+
+
+
+@media(min-width:992px) {
+    .row{
+        height: Auto;
+       
+    }
+
+    .get{
+        padding-top: 230px;
+    }
+
+    .pic{
+        padding-top: 120px;
+    }
+}
+
+
+
