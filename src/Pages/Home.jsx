@@ -39,7 +39,7 @@ function Home() {
     <div className='continer' style={{height:"auto"}}>
     <div className='row mb-5' style={{height:"100%"}}>
       <div className="get col-12 col-md-6 " >
-        <center><h3><GrCloudComputer/> PROJECT FAIR</h3><br />
+        <center><h3> PROJECT FAIR</h3><br />
         <h5>"Every project is an opportunity to learn, to figure out problems and challenges, to invent and reinvent</h5>
         <br />
 

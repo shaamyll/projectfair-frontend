@@ -32,7 +32,7 @@ function ProjectCard({project}) {
     const toggleOpen = () => setCentredModal(!centredModal);
   
   return (
-    <div className='ms-md-5'>
+    <div className='ms-md-5 mb-4'>
 
 
 <MDBCard onClick={toggleOpen} style={{width:"400px"}} className=''>
@@ -40,8 +40,18 @@ function ProjectCard({project}) {
       <MDBCardBody>
         <MDBCardTitle>{project.title}</MDBCardTitle>
         <MDBCardText>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          Language: {project.language}
         </MDBCardText>
+        <MDBCardText>
+          Girhub: {project.github}
+        </MDBCardText>
+        <MDBCardText>
+          website: {project.website}
+        </MDBCardText>
+        <MDBCardText>
+          Overview: {project.overview}
+        </MDBCardText>
+        
         <center><MDBBtn href='#'>Button</MDBBtn></center>
       </MDBCardBody>
     </MDBCard>

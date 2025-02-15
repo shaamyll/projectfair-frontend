@@ -24,17 +24,11 @@ function Auth({register}) {
     const {username,email,password}=userDetails
     if(!username||!email||!password){
       
-      toast.warn('Please fill the form', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        
-        });
+      Swal.fire({
+        title: "Please Fill the Form",
+        icon: "error",
+        draggable: true
+      });
     }
     else{
       //API fetching
@@ -43,17 +37,11 @@ function Auth({register}) {
       console.log(response);
       if(response.status==200){
 
-        toast.success(response.data, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          
-          });
+        Swal.fire({
+          title: response.data,
+          icon: "success",
+          draggable: true
+        });
 
           setTimeout(()=>{
             navigate('/login')
@@ -63,16 +51,11 @@ function Auth({register}) {
 
       }
       else{
-        toast.error("Invalid User Detaiols", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
+        Swal.fire({
+          title: "Invalid User Details",
+          icon: "error",
+          draggable: true
+        });
       }
      }
      catch(err){
@@ -97,17 +80,11 @@ function Auth({register}) {
     const {email,password}=userDetails
     if(!email||!password){
       
-      toast.warn('Please fill the form', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        
-        });
+      Swal.fire({
+        title: "Please Fill the Form",
+        icon: "error",
+        draggable: true
+      });
     }
     else{
      try{
@@ -119,23 +96,15 @@ function Auth({register}) {
 
       if(response.status==200){
 
-        toast.success("Login Successfull..", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          
-          });
+        Swal.fire({
+          title: "Login Successfull",
+          icon: "success",
+          draggable: true
+        });
 
-          setTimeout(()=>{
+        navigate('/dashboard')
 
-            navigate('/dashboard')
-
-          },6000)
+       
 
           sessionStorage.setItem("username",response.data.currentUser.username)
           sessionStorage.setItem("token",response.data.token)

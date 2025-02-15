@@ -22,21 +22,23 @@ const handleLogOut =()=>{
 
   return (
     <>
-   <MDBNavbar light bgColor='dark' style={{padding:"8px"}} >
+   <MDBNavbar light bgColor='' style={{padding:"10px", color:"#F8EEE7", backgroundColor:"#49274A"}} >
         <MDBContainer fluid>
           <MDBNavbarBrand href='#'>
             {/* <img
-              src='https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.webp'
+              src='file:///C:/Users/VICTUS/Downloads/undraw_coding_joxb.svg'
               height='30'
               alt=''
               loading='lazy'
             /> */}
-            <h4 style={{color:"white"}}><GrCloudComputer />  ProjectFair</h4>
+
+{/* <GrCloudComputer /> */}
+            <h4 style={{color:"lightgray"}}>  ProjectFair</h4>
 
             
           </MDBNavbarBrand>
           {
-            isAuthorized ?  <button onClick={handleLogOut} className='btn btn-danger'>Logout</button> : ""
+            isAuthorized ?  <button onClick={handleLogOut} className='btn btn-danger ' style={{height:"40px", paddingBottom:"0px"}}>Logout</button> : ""
             
           }
         </MDBContainer>

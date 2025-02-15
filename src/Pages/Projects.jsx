@@ -21,24 +21,26 @@ function Projects() {
       }
       console.log(reqHeader);
 
-      const response = await getAllUserProjectAPI(reqHeader)
+      const response = await getAllUserProjectAPI(searchkey,reqHeader)
       console.log(response);
       setAllUserProject(response.data)
+
+      console.log(allUserProject);
+
       
     }
   }
 
-    console.log(allUserProject);
     
 
     useEffect(()=>{
       setToken(sessionStorage.getItem("token"))
       getAllUserProject()
-    },[token])
+    },[token,searchkey])
 
   return (
     <div className=' row ' style={{height:"100%"}}>
-     <div className="col ms-5 mt-4">
+     <div className="col ms-5 mt-4" style={{height:"100%"}}>
      <h3>All Projects</h3>
      <br />
      </div>

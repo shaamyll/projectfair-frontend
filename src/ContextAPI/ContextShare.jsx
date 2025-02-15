@@ -10,14 +10,14 @@ function ContextShare({children}) {
 
     // 2 Create a state
     const [addProjectContext,setAddProjectContext] = useState("")
-    const [editContext,setEditContext] = useState("")
+    const [editProjectContext,setEditProjectContext] = useState("")
 
 
   return (
     <div>
         
         <addProjectContextResponse.Provider value={{addProjectContext,setAddProjectContext}}>
-          <editProjectContextResponse.Provider value={{editContext,setEditContext}}>
+          <editProjectContextResponse.Provider value={{editProjectContext,setEditProjectContext}}>
             {children}
             </editProjectContextResponse.Provider>
         </addProjectContextResponse.Provider>

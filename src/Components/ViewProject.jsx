@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { deleteProjectAPI, getUserProjectAPI } from '../services/allAPIs';
+import { deleteProjectAPI, getParticularUserProjectAPI } from '../services/allAPIs';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaSquareGithub } from "react-icons/fa6";
@@ -14,25 +14,27 @@ function ViewProject() {
   const {addProjectContext,setAddProjectContext} = useContext(addProjectContextResponse)
 
 
-  const [token,setToken] = useState("")
+  const [token,setToken] = useState('')
+  const [userProject,setuserProject] = useState([])
 
 
-  const [projectDetails,setProjectDetails] = useState({})
-
-
-  const getUserPoject = async()=>{
+  const getAUserPoject = async()=>{
     if(token){
       const reqHeader = {
-        "Content-Type":"multipart/form-data",
+        "Content-Type":"application/json",
         "Authorization":`Bearer ${token}`
       }
 
       console.log(reqHeader);
 
-      const response = await getUserProjectAPI(reqHeader)
+      const response = await getParticularUserProjectAPI(reqHeader)
+
       console.log(response);
 
-      setProjectDetails(response.data)
+      setuserProject(response.data)
+
+      console.log(userProject);
+      
       
       
   }
@@ -62,7 +64,7 @@ const handleDelete = async(projectId)=>{
 
 useEffect(()=>{
   setToken(sessionStorage.getItem("token"))
-  getUserPoject()
+  getAUserPoject()
 },[token,addProjectContext,editContext])
 
 
@@ -70,11 +72,11 @@ useEffect(()=>{
     <div>
 
     
-    <div className="row mt-4 mb-5 me-5 ms-3">
+    <div className="row mt-4 mb-5 me-5 ms-3" style={{height:"100%"}}>
 
 
     {
-      projectDetails.length>0 ? projectDetails.map(project => (
+      userProject.length>0 ? userProject.map(project => (
         <Card className='mb-4'>
         <Card.Header>language: {project.language}</Card.Header>
         <Card.Body>

@@ -21,13 +21,13 @@ export const getHomeProjectAPI = async()=>{
 }
 
 
-export const getAllUserProjectAPI = async(reqHeader)=>{
-    return await commonAPI('get',`${serverUrl}/api/getHomeProjects`,"",reqHeader)
+export const getAllUserProjectAPI = async(searchKey,reqHeader)=>{
+    return await commonAPI('get',`${serverUrl}/api/getAllUserProjects?search=${searchKey}`,"",reqHeader)
 }
 
 
-export const getUserProjectAPI = async(reqHeader)=>{
-    return await commonAPI('get',`${serverUrl}/api/getUserProject`,"",reqHeader)
+export const getParticularUserProjectAPI = async(reqHeader)=>{
+    return await commonAPI('get',`${serverUrl}/api/getParticularUserProject`,"",reqHeader)
 }
 
 

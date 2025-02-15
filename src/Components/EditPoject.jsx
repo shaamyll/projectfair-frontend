@@ -66,9 +66,14 @@ function EditPoject({ project }) {
         console.log(response);
 
         if (response.status == 200) {
-          alert("Project updated..")
-          setEditContext(response.data)
+          Swal.fire({
+            title: "project Updated Successfully",
+            icon: "success",
+            draggable: true
+          });
           handleClose()
+          setEditContext(response.data)
+          
 
         }
 
